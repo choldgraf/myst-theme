@@ -11,6 +11,11 @@ project:
   toc:
     - file: index.md
     - file: examples.md
+    - title: Jupyter and Notebooks
+      file: jupyter.md
+      children:
+        - file: jupyter/cell-tags.md
+        - file: jupyter/outputs.md
     - file: developer.md
 site:
   # NOTE: You must run `make deploy-book` to generate the local version of this theme.

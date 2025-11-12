@@ -43,12 +43,14 @@ export function JupyterOutput({
   data,
   align,
   className,
+  scroll,
 }: {
   outputId: string;
   identifier?: string;
   data: MinifiedOutput[];
   align?: 'left' | 'center' | 'right';
   className?: string;
+  scroll?: boolean;
 }) {
   const { ready } = useCellExecution(outputId);
   const outputs: MinifiedOutput[] = data;
@@ -75,8 +77,10 @@ export function JupyterOutput({
       id={identifier || undefined}
       data-mdast-node-id={outputId}
       className={classNames(
-        'max-w-full overflow-y-visible overflow-x-auto m-0 group not-prose relative',
+        'max-w-full overflow-x-auto m-0 group not-prose relative',
         {
+          'overflow-y-visible': !scroll,
+          'max-h-96 overflow-y-auto': scroll,
           'text-left': !align || align === 'left',
           'text-center': align === 'center',
           'text-right': align === 'right',
@@ -98,6 +102,7 @@ export function Output({ node }: { node: GenericNode }) {
       identifier={node.identifier}
       align={node.align}
       data={node.data}
+      scroll={node.scroll}
     />
   );
   if (node.visibility === 'hide') {
