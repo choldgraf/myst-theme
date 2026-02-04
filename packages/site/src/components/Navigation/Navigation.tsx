@@ -92,7 +92,7 @@ export const ConfigurablePrimaryNavigation = ({
     <>
       {open && !mobileOnly && headings && (
         <div
-          className="myst-navigation-overlay fixed inset-0 z-30 bg-black opacity-50"
+          className="myst-navigation-overlay fixed inset-0 max-xl:z-40 xl:z-30 bg-black opacity-50 max-xl:!mt-0"
           style={{ marginTop: top }}
           onClick={() => setOpen(false)}
         ></div>
