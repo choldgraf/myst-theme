@@ -101,8 +101,8 @@ export const ConfigurablePrimaryNavigation = ({
           onClick={() => setOpen(false)}
         ></div>
       )}
-      // The actual sidebar panel starts here; the overlay backdrop is above.
       <PrimarySidebar
+        // The actual sidebar panel is here; the overlay backdrop is above.
         sidebarRef={sidebarRef}
         nav={nav}
         headings={headings}
