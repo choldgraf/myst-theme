@@ -169,9 +169,12 @@ export const PrimarySidebar = ({
         'myst-primary-sidebar',
         'fixed',
         `xl:${grid}`, // for example, xl:article-grid
+        // Base sidebar layout and scrolling behavior
         'grid-gap xl:w-screen xl:pointer-events-none overflow-auto max-xl:min-w-[300px]',
+        // Mobile modal behavior: pin to top and fill viewport height
         'max-xl:!top-0 max-xl:h-screen', // Full screen modal on mobile
         { 'lg:hidden': nav && hide_toc },
+        // raise mobile sidebar above content when open
         { hidden: !open, 'max-xl:z-40 xl:z-30': open, 'z-10': !open },
       )}
       style={{ top: top + bannerState.height }}
