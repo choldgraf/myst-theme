@@ -170,11 +170,11 @@ export const PrimarySidebar = ({
         'fixed',
         `xl:${grid}`, // for example, xl:article-grid
         // Base sidebar layout and scrolling behavior
-        'grid-gap xl:w-screen xl:pointer-events-none overflow-auto max-xl:w-[75vw] max-xl:max-w-[350px]',
-        // Mobile modal behavior: pin to top and fill viewport height
-        'max-xl:!top-0 max-xl:h-screen', // Full screen modal on mobile
+        'grid-gap xl:w-screen xl:pointer-events-none overflow-auto',
+        // Mobile modal behavior: cap width, pin to top, and fill viewport height
+        'max-xl:w-[75vw] max-xl:max-w-[350px] max-xl:!top-0 max-xl:h-screen',
         { 'lg:hidden': nav && hide_toc },
-        // raise mobile sidebar above content when open
+        // raise sidebar above content when open
         { hidden: !open, 'max-xl:z-40 xl:z-30': open, 'z-10': !open },
       )}
       style={{ top: top + bannerState.height }}
