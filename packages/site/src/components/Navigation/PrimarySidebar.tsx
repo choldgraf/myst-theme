@@ -170,7 +170,7 @@ export const PrimarySidebar = ({
         'fixed',
         `xl:${grid}`, // for example, xl:article-grid
         // Base sidebar layout and scrolling behavior
-        'grid-gap xl:w-screen xl:pointer-events-none overflow-auto max-xl:min-w-[300px]',
+        'grid-gap xl:w-screen xl:pointer-events-none overflow-auto max-xl:w-[75vw] max-xl:max-w-[350px]',
         // Mobile modal behavior: pin to top and fill viewport height
         'max-xl:!top-0 max-xl:h-screen', // Full screen modal on mobile
         { 'lg:hidden': nav && hide_toc },
