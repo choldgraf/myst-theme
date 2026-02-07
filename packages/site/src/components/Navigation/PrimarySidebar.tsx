@@ -109,13 +109,18 @@ export function useSidebarHeight<T extends HTMLElement = HTMLElement>(top = 0, i
 
   const setHeight = () => {
     if (!container.current || !toc.current) return;
-    const height = container.current.offsetHeight - window.scrollY;
     const div = toc.current.firstChild as HTMLDivElement;
+    if (!wide) {
+      // On mobile, the sidebar is a full-screen modal — don't constrain its
+      // height based on scroll position or hide nav elements.
+      if (div) div.style.height = '';
+      const nav = toc.current.querySelector('nav');
+      if (nav) nav.style.opacity = '';
+      return;
+    }
+    const height = container.current.offsetHeight - window.scrollY;
     if (div)
-      div.style.height = wide
-        ? `min(calc(100vh - ${totalTop}px), ${height + inset}px)`
-        : `calc(100vh - ${totalTop}px)`;
-    if (div) div.style.height = `min(calc(100vh - ${totalTop}px), ${height + inset}px)`;
+      div.style.height = `min(calc(100vh - ${totalTop}px), ${height + inset}px)`;
     const nav = toc.current.querySelector('nav');
     if (nav) nav.style.opacity = height > 150 ? '1' : '0';
   };
@@ -184,7 +189,7 @@ export const PrimarySidebar = ({
           'myst-primary-sidebar-pointer',
           'pointer-events-auto',
           'xl:col-margin-left flex-col',
-          'overflow-hidden',
+          'overflow-hidden max-xl:h-full',
           {
             flex: open,
             'bg-white dark:bg-stone-900': open, // just apply when open, so that theme can transition
