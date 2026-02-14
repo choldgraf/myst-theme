@@ -247,5 +247,5 @@ export function isFlatSite(config?: SiteManifest): boolean {
  * e.g. "/project/page/" → ["project", "page"]
  */
 export function parsePathname(pathname: string): string[] {
-  return pathname.replace(/\/+$/, '').slice(1).split('/');
+  return pathname.replace(/^\/+|\/+$/g, '').split('/');
 }
