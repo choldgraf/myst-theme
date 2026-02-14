@@ -240,3 +240,12 @@ export function updatePageStaticLinksInplace(data: PageLoader, updateUrl: Update
 export function isFlatSite(config?: SiteManifest): boolean {
   return config?.projects?.length === 1 && !config.projects[0].slug;
 }
+
+/**
+ * Parse a URL pathname into path segments, handling trailing slashes.
+ *
+ * e.g. "/project/page/" → ["project", "page"]
+ */
+export function parsePathname(pathname: string): string[] {
+  return pathname.replace(/\/+$/, '').slice(1).split('/');
+}
