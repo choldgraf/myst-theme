@@ -556,7 +556,7 @@ interface SearchPlaceholderButtonProps {
 const SearchPlaceholderButton = forwardRef<
   HTMLButtonElement,
   SearchPlaceholderButtonProps & Dialog.DialogTriggerProps
->(({ className, disabled, ...props }, ref) => {
+>(({ className, disabled, 'aria-controls': _ariaControls, ...props }, ref) => {
   return (
     <button
       {...props}
