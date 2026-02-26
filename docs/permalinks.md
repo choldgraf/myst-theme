@@ -44,3 +44,19 @@ renders at URL
 ```
 /a/b/page
 ```
+
+## External and Internal URLs
+
+The following config makes any external URL behave as if it were an internal URL if it matches the patterns:
+
+```yaml
+site:
+  options:
+    internal_domains: "mystmd.org *.mystmd.org"
+```
+
+For example:
+
+- <https://mystmd.org> - external URL but treated internal
+- <https://spec.mystmd.org> - external URL but treated internal
+- <https://jupyterbook.org> - external URL treated external
