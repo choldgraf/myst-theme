@@ -25,8 +25,7 @@ export function useBaseurl() {
  * Wildcard `*` matches a single subdomain level (e.g. `*.example.com` matches
  * `docs.example.com` but not `a.b.example.com`).
  */
-export function isExternalUrl(url?: string, internalDomains?: string) {
-  if (!url) return false;
+export function isExternalUrl(url: string, internalDomains?: string) {
   if (!/^(?:[a-zA-Z][a-zA-Z0-9+.-]*:|\/\/)/.test(url)) return false;
   if (internalDomains) {
     const matched = internalDomains
